@@ -188,7 +188,7 @@ jobs:
       - name: 'Setup NuGet Credentials'
         if: startsWith(matrix.os,'windows')
         run: >
-          `vcpkg fetch nuget | Get-Content -Tail 1`
+          nuget
           sources add
           -source "https://nuget.pkg.github.com/libsndfile/index.json"
           -storepasswordincleartext
