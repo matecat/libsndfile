@@ -15,6 +15,18 @@
         "libvorbis",
         "opus"
       ]
+    },
+    "experimental": {
+      "description": "Enables experimental code.",
+      "dependencies": [
+        "speex"
+      ]
+    },
+    "regtest": {
+      "description": "Enables internal sndfile-regtest utility build target.",
+      "dependencies": [
+        "sqlite3"
+      ]
     }
   }
 }
