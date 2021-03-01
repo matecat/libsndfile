@@ -126,6 +126,7 @@ jobs:
               -DCMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded$<$<CONFIG:Debug>:Debug>
               -DCMAKE_BUILD_TYPE=Release
               -DVCPKG_TARGET_TRIPLET=x64-windows-static
+              -DVCPKG_MANIFEST_FEATURES=experimental;regtest
               -DCMAKE_TOOLCHAIN_FILE=c:/vcpkg/scripts/buildsystems/vcpkg.cmake
 
           - name: windows-vs2019-x64-shared
@@ -141,6 +142,7 @@ jobs:
               -DINSTALL_PKGCONFIG_MODULE=OFF
               -DCMAKE_BUILD_TYPE=Release
               -DVCPKG_TARGET_TRIPLET=x64-windows-static
+              -DVCPKG_MANIFEST_FEATURES=experimental;regtest
               -DCMAKE_TOOLCHAIN_FILE=c:/vcpkg/scripts/buildsystems/vcpkg.cmake
 
           - name: windows-vs2019-Win32
@@ -153,6 +155,7 @@ jobs:
               -DCMAKE_GENERATOR_PLATFORM=Win32
               -DCMAKE_BUILD_TYPE=Release
               -DVCPKG_TARGET_TRIPLET=x86-windows-static
+              -DVCPKG_MANIFEST_FEATURES=experimental;regtest
               -DCMAKE_TOOLCHAIN_FILE=c:/vcpkg/scripts/buildsystems/vcpkg.cmake
 
           - name: windows-vs2019-Win32-shared
@@ -170,6 +173,7 @@ jobs:
               -DCPACK_PACKAGE_NAME=libsndfile
               -DCMAKE_BUILD_TYPE=Release
               -DVCPKG_TARGET_TRIPLET=x86-windows-static
+              -DVCPKG_MANIFEST_FEATURES=experimental;regtest
               -DCMAKE_TOOLCHAIN_FILE=c:/vcpkg/scripts/buildsystems/vcpkg.cmake
 
     runs-on: ${{ matrix.os }}
@@ -213,7 +217,6 @@ jobs:
         env:
           VCPKG_BINARY_SOURCES: 'clear;nuget,GitHub,readwrite'
           VCPKG_FEATURE_FLAGS: manifests
-          "VCPKG_MANIFEST_FEATURES": "experimental;regtest"
           CC: ${{ matrix.cc }}
           CXX: ${{ matrix.cxx }}
         if: startsWith(matrix.build-system,'cmake')
