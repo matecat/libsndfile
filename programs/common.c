@@ -73,7 +73,7 @@ sfe_copy_data_fp (SNDFILE *outfile, SNDFILE *infile, int channels, int normalize
 			{	data [k] /= max ;
 
 				if (!isfinite (data [k])) /* infinite or NaN */
-					return 1;
+					return 1 ;
 				}
 			sf_writef_double (outfile, data, readcount) ;
 			} ;
@@ -341,7 +341,6 @@ static OUTPUT_FORMAT_MAP format_map [] =
 	{	"prc",		0,	SF_FORMAT_WVE	},
 	{	"ogg",		0,	SF_FORMAT_OGG	},
 	{	"oga",		0,	SF_FORMAT_OGG	},
-	{	"opus",		0,	SF_FORMAT_OGG | SF_FORMAT_OPUS },
 	{	"mpc",		0,	SF_FORMAT_MPC2K	},
 	{	"rf64",		0,	SF_FORMAT_RF64	},
 } ; /* format_map */
@@ -490,7 +489,6 @@ sfe_codec_name (int format)
 		case SF_FORMAT_ALAC_20 : return "20 bit ALAC" ;
 		case SF_FORMAT_ALAC_24 : return "24 bit ALAC" ;
 		case SF_FORMAT_ALAC_32 : return "32 bit ALAC" ;
-		case SF_FORMAT_OPUS : return "Opus" ;
 		default : break ;
 		} ;
 	return "unknown" ;
