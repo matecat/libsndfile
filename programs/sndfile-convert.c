@@ -243,10 +243,6 @@ main (int argc, char * argv [])
 		{	outfileminor = SF_FORMAT_VORBIS ;
 			continue ;
 			} ;
-		if (! strcmp (argv [k], "-opus"))
-		{	outfileminor = SF_FORMAT_OPUS ;
-			continue ;
-			} ;
 
 		if (strstr (argv [k], "-override-sample-rate=") == argv [k])
 		{	const char *ptr ;
@@ -353,7 +349,6 @@ main (int argc, char * argv [])
 	if (normalize
 			|| (outfileminor == SF_FORMAT_DOUBLE) || (outfileminor == SF_FORMAT_FLOAT)
 			|| (infileminor == SF_FORMAT_DOUBLE) || (infileminor == SF_FORMAT_FLOAT)
-			|| (infileminor == SF_FORMAT_OPUS) || (outfileminor == SF_FORMAT_OPUS)
 			|| (infileminor == SF_FORMAT_VORBIS) || (outfileminor == SF_FORMAT_VORBIS))
 	{	if (sfe_copy_data_fp (outfile, infile, sfinfo.channels, normalize) != 0)
 		{	printf ("Error : Not able to decode input file %s.\n", infilename) ;
