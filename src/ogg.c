@@ -733,9 +733,6 @@ ogg_open (SF_PRIVATE *psf)
 			psf->container_close = NULL ;
 			return flac_open (psf) ;
 
-		case SF_FORMAT_OGG | SF_FORMAT_OPUS :
-			return ogg_opus_open (psf) ;
-
 #if ENABLE_EXPERIMENTAL_CODE
 		case SF_FORMAT_OGG | SF_FORMAT_SPEEX :
 			return ogg_speex_open (psf) ;
